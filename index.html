@@ -4,38 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Práctica de Pilas - Oraciones y Valores</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <h1>Práctica de Pilas - Pilas en JavaScript</h1>
-  <p>Selecciona una opción:</p>
+<body class="bg-light">
+  <div class="container mt-5">
+    <h1 class="text-center">Práctica de Pilas - Pilas en JavaScript</h1>
+    <p class="text-center">Selecciona una opción:</p>
 
-  <div id="menu">
-    <button onclick="mostrarInversion()">1. Invertir Oración</button>
-    <button onclick="mostrarPalindromo()">2. Verificar Palíndromo</button>
-    <button onclick="mostrarReemplazar()">3. Reemplazar Valor en Pila</button>
-    <button onclick="mostrarSumaNumerosGrandes()">4. Sumar Números Grandes</button>
-  </div>
-
-  <div id="inputSection" style="display: none;">
-    <label for="textInput">Introduce una entrada:</label>
-    <input type="text" id="textInput" required>
-    <div id="extraInputs" style="display: none;">
-      <label for="oldValue">Valor a reemplazar:</label>
-      <input type="number" id="oldValue">
-      <label for="newValue">Nuevo valor:</label>
-      <input type="number" id="newValue">
+    <div id="menu" class="d-flex justify-content-center mb-4">
+      <button class="btn btn-primary m-2" onclick="mostrarInversion()">1. Invertir Oración</button>
+      <button class="btn btn-secondary m-2" onclick="mostrarPalindromo()">2. Verificar Palíndromo</button>
+      <button class="btn btn-success m-2" onclick="mostrarReemplazar()">3. Reemplazar Valor en Pila</button>
+      <button class="btn btn-warning m-2" onclick="mostrarSumaNumerosGrandes()">4. Sumar Números Grandes</button>
     </div>
-    <div id="secondNumberSection" style="display: none;">
-      <label for="textInput2">Introduce el segundo número:</label>
-      <input type="text" id="textInput2">
+
+    <div id="inputSection" class="card p-3 mb-4" style="display: none;">
+      <div class="form-group">
+        <label for="textInput">Introduce una entrada:</label>
+        <input type="text" class="form-control" id="textInput" required>
+      </div>
+
+      <div id="extraInputs" class="form-group" style="display: none;">
+        <label for="oldValue">Valor a reemplazar:</label>
+        <input type="number" class="form-control" id="oldValue">
+        <label for="newValue">Nuevo valor:</label>
+        <input type="number" class="form-control" id="newValue">
+      </div>
+
+      <div id="secondNumberSection" class="form-group" style="display: none;">
+        <label for="textInput2">Introduce el segundo número:</label>
+        <input type="text" class="form-control" id="textInput2">
+      </div>
+
+      <button class="btn btn-primary mt-3" onclick="ejecutar()">Procesar</button>
+      <button class="btn btn-danger mt-3" onclick="eliminarEntradas()">Eliminar</button>
     </div>
-    <button onclick="ejecutar()">Procesar</button>
+
+    <div id="outputSection" class="text-center">
+      <p id="outputText" class="font-weight-bold"></p>
+    </div>
   </div>
 
-  <div id="outputSection">
-    <p id="outputText"></p>
-  </div>
+  <script>
+    function eliminarEntradas() {
+      document.getElementById('textInput').value = '';
+      document.getElementById('oldValue').value = '';
+      document.getElementById('newValue').value = '';
+      document.getElementById('textInput2').value = '';
+      document.getElementById('extraInputs').style.display = 'none';
+      document.getElementById('secondNumberSection').style.display = 'none';
+      document.getElementById('outputText').innerText = '';
+    }
+  </script>
 
   <script src="script.js"></script>
 </body>
